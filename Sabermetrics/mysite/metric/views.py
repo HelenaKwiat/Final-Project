@@ -1,6 +1,8 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-	for i in range(10):
-		x = i + 1
-	return HttpResponse("Hello, World here's your metric.")
+	# template = loader.get_template('metric/index.html')
+	context = {}
+	# return HttpResponse(template.render(context, request))
+	return render(request, 'metric/index.html', context)
