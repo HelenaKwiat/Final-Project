@@ -1,0 +1,94 @@
+<!doctype html>
+
+<!-- Home -->
+
+<html class="h-100" lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/background.css">
+
+</head>
+
+<body class="h-100">
+    <div class="h-90" id="header-background">
+        <div class="container h-100" >
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="display-2" style="color: white">Search for a baseball player <i class="fas fa-baseball-ball"></i></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="lead" style="color: white">
+                                Our website will generate statistic for you to show you how good your player might be in 5 years. We'll also compare your player to others around the mlb and show
+                                you some graphs for comparison.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <form id="form" action="{{ url_for('player') }}" method="POST">
+                                <div class="input-group">
+                                    <input class="form-control form-control-lg shadow" type="text" id="tags" placeholder="Player Name" name="playerName">
+                                    <div class="input-group-append shadow">
+                                        <button class="btn btn-outline-success btn-lg" type="submit" role="button">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-bottom: 250px">
+        <div class="row" style="margin-bottom: 50px">
+            <div class="col-12">
+                <h1 class="display-2" style="color: #bbdb9b">Why Was It Created?</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="lead" style="color: #bbdb9b">
+                    We wanted to create a statistic that was similar to the 'player type' research that Bill James did. So we decided to create a statistic that might look at how good a player would be
+                    in the future. And we thought that it might be interesting to see how players today age compared to older players with advances in medicine and practices around sports.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="how-background">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12">
+                    <div class="card shadow" style="margin-bottom: 250px; margin-top: 250px">
+                        <div class="card-body">
+                            <div class="row" style="margin-bottom: 50px">
+                                <div class="col-12">
+                                    <h1 class="display-2" style="color: #bbdb9b">How Does It Work?</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="lead" style="color: #bbdb9b">
+                                        We pulled in a lot of batting data from Fangraphs batting in order to calculate the statistic for each player and standardize it across players.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
