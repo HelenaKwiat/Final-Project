@@ -27,11 +27,14 @@ app = Flask(__name__)
 def index():
    return render_template('hello.html')
 
-@app.route('/login',methods = ['POST', 'GET'])
-def login():
+@app.route('/graph',methods = ['POST', 'GET'])
+def graph():
    if request.method == 'POST':
-    #   user = request.form['nm']
-      return 'hello'
+        team = request.form['submitbutton']
+        ###do stuff
+        context = {team}
+        return render_template('graph.html', context)
+
 
 
 if __name__ == '__main__':
