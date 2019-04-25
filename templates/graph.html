@@ -5,39 +5,49 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
    <body background="../static/SiebertField640.jpg">
-      <form action = "http://localhost:5000/{{graph}}" method = "post">
+     <h2>
+       Sabermetrics Final Project
+     </h2>
+      <form action = "http://localhost:5000/graph" method = "post">
         <div id='teams'>
-         <p><input type = "submit" value = "Team Name" height="100"/></p>
-          <p><input type = "submit" value = "ME" /></p>
-           <p><input name="COL" type = "submit" value = "Colorado Rockies" action = "http://localhost:5000/COL"/></p>
-            <p><input type = "submit" value = "Him" ></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
-            <p><input type = "submit" value = "Him" /></p>
+          <p><input type = "submit" name = 'submitbutton' value = "LAA" height="100"/></p>
+           <p><input type = "submit" name = 'submitbutton' value = "HOU" /></p>
+            <p><input  type = "submit" name = 'submitbutton' value = "OAK" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "TOR" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "ATL" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "MIL" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "STL" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "CHC" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "ARI" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "LAD" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "SFG" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "CLE" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "SEA" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "MIA" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "NYM" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "WSN" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "BAL" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "SDP" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "PHI" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "PIT" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "TEX" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "TBR" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "BOS" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "CIN" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "COL" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "KCR" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "DET" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "MIN" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "CHW" /></p>
+             <p><input type = "submit" name = 'submitbutton' value = "NYY" /></p>
         </div>
       </form>
+      <h1>
+        {% block body %}
+          {% for item in data %}
+            {{ item }}
+          {% endfor %}
+        {% endblock %}
+      </h1>
    </body>
 </html>

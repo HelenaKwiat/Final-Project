@@ -58,6 +58,19 @@ def combineOtherStats():
     newStat = pd.merge(newStat, salaries, on='teamID')
     print(newStat)
 
+
+def getValue(value):
+    team = newStat.loc[(newStat['teamID']==value)]
+    stat = team.iloc[0][0]
+    attendance = team.iloc[0]['attendance']
+    salary = team.iloc[0]['salary']
+    wins = team.iloc[0]['W']
+
+    data = [stat, attendance, salary, wins]
+
+    print(stat)
+    return data
+
 def main():
     readFiles()
     getNewStat()
