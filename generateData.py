@@ -5,10 +5,11 @@ import pandas as pd
 from pybaseball.lahman import *
 # download_lahman()
 
-bat2019 = pd.DataFrame()
-pitch2019 = pd.DataFrame()
-field2019 = pd.DataFrame()
-newStat = pd.DataFrame()
+# bat2019 = pd.DataFrame()
+# pitch2019 = pd.DataFrame()
+# field2019 = pd.DataFrame()
+# newStat = pd.DataFrame()
+
 
 def readFiles():
     global bat2019
@@ -44,11 +45,12 @@ def getNewStat():
     newStat['teamID'] =  ['LAA', 'HOU', 'OAK', 'TOR', 'ATL', 'MIL', 'STL', 'CHC', 'ARI', 'LAD', 'SFG', 'CLE', 'SEA', 'MIA', 'NYM', 'WSN', 'BAL', 'SDP', 'PHI', 'PIT', 'TEX', 'TBR', 'BOS', 'CIN', 'COL', 'KCR', 'DET', 'MIN', 'CHW', 'NYY']
 
 def combineOtherStats():
+    global newStat
     teams = pd.read_csv('core/Teams.csv')
     teams2016 = teams.loc[teams['yearID']==2016]
     teams2016 = teams2016[['teamID', 'W', 'attendance']]
     newStat = pd.merge(newStat, teams2016, on='teamID')
-    salaries = salaries()
+    salaries = pd.read_csv('core/Salaries.csv')
     salaries = salaries.loc[salaries['yearID'] == 2016]
     salaries = salaries.groupby('teamID', as_index=False).sum()
     salaries = salaries[['teamID', 'salary']]
