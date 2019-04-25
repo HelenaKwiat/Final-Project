@@ -42,7 +42,6 @@ multipledispatch==0.4.9
 nbconvert==5.3.1
 nbformat==4.4.0
 numpy==1.13.3
-packaging==1
 pandas==0.24.0
 py==1.4.34
 pybaseball==1.0.5
