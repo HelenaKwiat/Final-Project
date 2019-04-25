@@ -9,6 +9,7 @@ matplotlib==2.1.0
 numpy==1.13.3
 pandas==0.24.2
 pybaseball==1.0.5
+python-dateutil==2.7.5
 scipy==0.19.1
 virtualenv==16.4.3
 
