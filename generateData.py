@@ -48,7 +48,8 @@ def combineOtherStats():
     global newStat
     teams = pd.read_csv('core/Teams.csv')
     teams2016 = teams.loc[teams['yearID']==2016]
-    teams2016 = teams2016[['teamID', 'W', 'attendance']]
+    teams2016 = teams2016[['teamIDBR', 'W', 'attendance']]
+    teams2016['teamID'] = teams2016['teamIDBR']
     newStat = pd.merge(newStat, teams2016, on='teamID')
     salaries = pd.read_csv('core/Salaries.csv')
     salaries = salaries.loc[salaries['yearID'] == 2016]
