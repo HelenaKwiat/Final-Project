@@ -2,12 +2,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
    <body background="../static/SiebertField640.jpg">
      <h2>
        Sabermetrics Final Project
      </h2>
-      <form action = "https://sabermetrics-final-project.herokuapp.com/graph" method = "post">
+      <form action = "http://localhost:5000/graph" method = "post">
         <div id='teams'>
          <p><input type = "submit" name = 'submitbutton' value = "LAA" height="100"/></p>
           <p><input type = "submit" name = 'submitbutton' value = "HOU" /></p>
@@ -41,5 +42,45 @@
             <p><input type = "submit" name = 'submitbutton' value = "NYY" /></p>
         </div>
       </form>
+      <h1>
+       <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+      <script>
+      var trace1 = {
+        x: "{{stat}}",
+        y: "{{attendance}}",
+        mode: 'markers',
+        type: 'scatter',
+        textposition: 'top center',
+        textfont: {
+          family:  'Raleway, sans-serif'
+        },
+        marker: { size: 12 }
+      };
+
+
+      var data = [ trace1 ];
+
+      var layout = {
+        xaxis: {
+          range: [ -5, 2 ]
+        },
+        yaxis: {
+          range: [0, 8]
+        },
+        legend: {
+          y: 0.5,
+          yref: 'paper',
+          font: {
+            family: 'Arial, sans-serif',
+            size: 20,
+            color: 'grey',
+          }
+        },
+        title:'DOW vs Attendance'
+      };
+
+      Plotly.newPlot('myDiv', data, layout);
+      </script>
+    </h1>
    </body>
 </html>
