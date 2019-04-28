@@ -42,45 +42,6 @@
             <p><input type = "submit" name = 'submitbutton' value = "NYY" /></p>
         </div>
       </form>
-      <h1>
-       <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-      <script>
-      var trace1 = {
-        x: "{{stat}}",
-        y: "{{attendance}}",
-        mode: 'markers',
-        type: 'scatter',
-        textposition: 'top center',
-        textfont: {
-          family:  'Raleway, sans-serif'
-        },
-        marker: { size: 12 }
-      };
 
-
-      var data = [ trace1 ];
-
-      var layout = {
-        xaxis: {
-          range: [ -5, 2 ]
-        },
-        yaxis: {
-          range: [0, 8]
-        },
-        legend: {
-          y: 0.5,
-          yref: 'paper',
-          font: {
-            family: 'Arial, sans-serif',
-            size: 20,
-            color: 'grey',
-          }
-        },
-        title:'DOW vs Attendance'
-      };
-
-      Plotly.newPlot('myDiv', data, layout);
-      </script>
-    </h1>
    </body>
 </html>

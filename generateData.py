@@ -3,13 +3,6 @@
 
 import pandas as pd
 from pybaseball.lahman import *
-# download_lahman()
-
-# bat2019 = pd.DataFrame()
-# pitch2019 = pd.DataFrame()
-# field2019 = pd.DataFrame()
-# newStat = pd.DataFrame()
-
 
 def readFiles():
     global bat2019
@@ -56,7 +49,6 @@ def combineOtherStats():
     salaries = salaries.groupby('teamID', as_index=False).sum()
     salaries = salaries[['teamID', 'salary']]
     newStat = pd.merge(newStat, salaries, on='teamID')
-    print(newStat)
 
 
 def getValue(value):
@@ -66,9 +58,18 @@ def getValue(value):
     salary = team.iloc[0]['salary']
     wins = team.iloc[0]['W']
 
-    data = [stat, attendance, salary, wins]
 
-    print(stat)
+    allStat = newStat[0].to_numpy()
+    allStatArray = []
+    allAttendanceArray = []
+    allAttendance = newStat['attendance'].to_numpy()
+    for i in range(len(allStat)):
+        allStatArray.append(allStat[i])
+        allAttendanceArray.append(allAttendance[i])
+
+    data = [stat, attendance, salary, wins, allStatArray, allAttendanceArray]
+
+    # print(stat)
     return data
 
 def main():

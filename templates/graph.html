@@ -3,6 +3,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
    <body background="../static/SiebertField640.jpg">
      <h2>
@@ -42,12 +43,68 @@
              <p><input type = "submit" name = 'submitbutton' value = "NYY" /></p>
         </div>
       </form>
+      <h3>
+        Defense Offense Weighted: {{data[0]}}
+      </h3>
+      <h3>
+        Attendance: {{data[1]}}
+      </h3>
+      <h3>
+        Salary: {{data[2]}}
+      </h3>
+      <h3>
+        Wins: {{data[3]}}
+      </h3>
       <h1>
-        {% block body %}
-          {% for item in data %}
-            {{ item }}
-          {% endfor %}
-        {% endblock %}
+        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+        var trace1 = {
+          x: {{data[4]|safe}},
+          y: {{data[5]|safe}},
+          mode: 'markers',
+          type: 'scatter',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: { size: 12 }
+        };
+        var trace2 = {
+          x: ["{{data[0]}}"],
+          y: ["{{data[1]}}"],
+          mode: 'markers',
+          type: 'scatter',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: {
+            color: 39,
+            size: 12
+          }
+        }
+
+
+        var data = [ trace1, trace2 ];
+
+        var layout = {
+          xaxis: {
+            title: {
+              text: 'Defense Offense Weighted'
+            },
+            range: [ -5, 1 ]
+          },
+          yaxis: {
+            title: {
+              text: 'Attendance'
+            },
+            range: [0, 4000000]
+          },
+          showlegend: false,
+          title:'DOW vs Attendance'
+        };
+        Plotly.newPlot('myDiv', data, layout);
+        </script>
       </h1>
    </body>
 </html>
