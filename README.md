@@ -26,4 +26,4 @@ HOSTED ON HEROKU:
 
 https://sabermetrics-final-project.herokuapp.com
 
-All we have left to do is format the graphs with javascript!
+we still could go into more depth about opur statistic and consider how it affects wins, salary, attendance, possibly discuss other stats like it.
