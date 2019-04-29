@@ -15,6 +15,7 @@ def readFiles():
 
 def getNewStat():
     global newStat
+    global batFieldandPitch
     batandField = pd.merge(bat2019, field2019, on ='Name', how = 'outer' )
     batFieldandPitch = pd.merge(batandField, pitch2019, on =['Team', 'Name'], how='outer')
     batFieldandPitch = batFieldandPitch.fillna(0)
@@ -58,7 +59,11 @@ def getValue(value):
     salary = team.iloc[0]['salary']
     wins = team.iloc[0]['W']
 
-
+    off = batFieldandPitch.groupby('Team')['Off'].mean()
+    print(off)
+    # off = off[0].value
+    d = batFieldandPitch.groupby('Team')['Def_x'].mean()
+    # d = d[0].value
     allStat = newStat[0].to_numpy()
     allAttendance = newStat['attendance'].to_numpy()
     allSalary = newStat['salary'].to_numpy()
@@ -74,7 +79,13 @@ def getValue(value):
         allSalaryArray.append(allSalary[i])
         allWinsArray.append(allWins[i])
 
-    data = [stat, attendance, salary, wins, allStatArray, allAttendanceArray, allSalaryArray, allWinsArray]
+    offArray = []
+    defArray = []
+    for i in range(len(off)):
+        offArray.append(off.iloc[i])
+        defArray.append(d.iloc[i])
+
+    data = [stat, attendance, salary, wins, allStatArray, allAttendanceArray, allSalaryArray, allWinsArray, offArray, defArray]
 
     # print(stat)
     return data

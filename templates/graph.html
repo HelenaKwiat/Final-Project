@@ -209,5 +209,73 @@
         Plotly.newPlot('graph3', data, layout);
         </script>
       </h6>
+      <h7>
+        <div id="graph4"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+        var OurStat = {
+          x: {{data[4]|safe}},
+          y: {{data[7]|safe}},
+          mode: 'markers',
+          type: 'scatter',
+          name: 'OurStat',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: { size: 12 }
+        };
+        var OffensiveStat = {
+          x: {{data[8]|safe}},
+          y: {{data[7]|safe}},
+          mode: 'markers',
+          type: 'scatter',
+          name: 'OffensiveStat',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: {
+            color: 39,
+            size: 12
+          }
+        };
+
+        var DefensiveStat = {
+          x: {{data[9]|safe}},
+          y: {{data[7]|safe}},
+          mode: 'markers',
+          type: 'scatter',
+          name: 'DefensiveStat',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: {
+            color: 20,
+            size: 12
+          }
+        };
+
+
+        var data = [ OurStat, OffensiveStat, DefensiveStat ];
+
+        var layout = {
+          xaxis: {
+            title: {
+              text: 'Defense Offense DOW'
+            },
+            range: [ -6, 5 ]
+          },
+          yaxis: {
+            title: {
+              text: 'Wins'
+            },
+            range: [0, 120]
+          },
+          title:'Defense Offense DOW'
+        };
+        Plotly.newPlot('graph4', data, layout);
+        </script>
+      </h7>
    </body>
 </html>
