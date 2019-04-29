@@ -43,6 +43,7 @@
              <p><input type = "submit" name = 'submitbutton' value = "NYY" /></p>
         </div>
       </form>
+      <p></p>
       <h3>
         Defense Offense Weighted: {{data[0]}}
       </h3>
@@ -56,7 +57,7 @@
         Wins: {{data[3]}}
       </h3>
       <h1>
-        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <div id="graph1"><!-- Plotly chart will be drawn inside this DIV --></div>
         <script>
         var trace1 = {
           x: {{data[4]|safe}},
@@ -103,8 +104,110 @@
           showlegend: false,
           title:'DOW vs Attendance'
         };
-        Plotly.newPlot('myDiv', data, layout);
+        Plotly.newPlot('graph1', data, layout);
         </script>
       </h1>
+      <h5>
+        <div id="graph2"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+        var trace1 = {
+          x: {{data[4]|safe}},
+          y: {{data[6]|safe}},
+          mode: 'markers',
+          type: 'scatter',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: { size: 12 }
+        };
+        var trace2 = {
+          x: ["{{data[0]}}"],
+          y: ["{{data[2]}}"],
+          mode: 'markers',
+          type: 'scatter',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: {
+            color: 39,
+            size: 12
+          }
+        }
+
+
+        var data = [ trace1, trace2 ];
+
+        var layout = {
+          xaxis: {
+            title: {
+              text: 'Defense Offense Weighted'
+            },
+            range: [ -5, 1 ]
+          },
+          yaxis: {
+            title: {
+              text: 'Salary'
+            },
+            range: [0, 300000000]
+          },
+          showlegend: false,
+          title:'DOW vs Salary'
+        };
+        Plotly.newPlot('graph2', data, layout);
+        </script>
+      </h5>
+      <h6>
+        <div id="graph3"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <script>
+        var trace1 = {
+          x: {{data[4]|safe}},
+          y: {{data[7]|safe}},
+          mode: 'markers',
+          type: 'scatter',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: { size: 12 }
+        };
+        var trace2 = {
+          x: ["{{data[0]}}"],
+          y: ["{{data[3]}}"],
+          mode: 'markers',
+          type: 'scatter',
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: {
+            color: 39,
+            size: 12
+          }
+        }
+
+
+        var data = [ trace1, trace2 ];
+
+        var layout = {
+          xaxis: {
+            title: {
+              text: 'Defense Offense Weighted'
+            },
+            range: [ -5, 1 ]
+          },
+          yaxis: {
+            title: {
+              text: 'Wins'
+            },
+            range: [0, 150]
+          },
+          showlegend: false,
+          title:'DOW vs Wins'
+        };
+        Plotly.newPlot('graph3', data, layout);
+        </script>
+      </h6>
    </body>
 </html>

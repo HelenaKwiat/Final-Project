@@ -60,14 +60,21 @@ def getValue(value):
 
 
     allStat = newStat[0].to_numpy()
+    allAttendance = newStat['attendance'].to_numpy()
+    allSalary = newStat['salary'].to_numpy()
+    allWins = newStat['W'].to_numpy()
+
     allStatArray = []
     allAttendanceArray = []
-    allAttendance = newStat['attendance'].to_numpy()
+    allSalaryArray = []
+    allWinsArray = []
     for i in range(len(allStat)):
         allStatArray.append(allStat[i])
         allAttendanceArray.append(allAttendance[i])
+        allSalaryArray.append(allSalary[i])
+        allWinsArray.append(allWins[i])
 
-    data = [stat, attendance, salary, wins, allStatArray, allAttendanceArray]
+    data = [stat, attendance, salary, wins, allStatArray, allAttendanceArray, allSalaryArray, allWinsArray]
 
     # print(stat)
     return data
